@@ -62,30 +62,43 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var HelloReact = function (_React$Component) {
-	    _inherits(HelloReact, _React$Component);
+	var Badge = function (_React$Component) {
+	    _inherits(Badge, _React$Component);
 
-	    function HelloReact() {
-	        _classCallCheck(this, HelloReact);
+	    function Badge() {
+	        _classCallCheck(this, Badge);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(HelloReact).apply(this, arguments));
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Badge).apply(this, arguments));
 	    }
 
-	    _createClass(HelloReact, [{
+	    _createClass(Badge, [{
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                'p',
-	                null,
-	                'Hello React.js, You Bitch! '
+	                'button',
+	                { className: 'btn btn-primary', type: 'button' },
+	                this.props.title,
+	                ' ',
+	                _react2.default.createElement(
+	                    'span',
+	                    { className: 'badge' },
+	                    this.props.count
+	                )
 	            );
 	        }
 	    }]);
 
-	    return HelloReact;
+	    return Badge;
 	}(_react2.default.Component);
 
-	(0, _reactDom.render)(_react2.default.createElement(HelloReact, null), document.getElementById('app'));
+	var values = {
+	    title: "Inbox",
+	    count: 4
+	};
+
+	var messageBadge = (0, _react.createElement)(Badge, values);
+
+	(0, _reactDom.render)(messageBadge, document.getElementById('app'));
 
 /***/ },
 /* 1 */
